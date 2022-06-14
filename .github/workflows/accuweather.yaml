@@ -1,0 +1,27 @@
+name: accuweather hourly
+on:
+  push:
+    branches:
+      - main
+  schedule:
+    - cron: '0 0 * * *'
+    - cron: '0 12 * * *'
+
+jobs:
+  my-job:
+    name: Accuweather Job
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v2
+    - uses: actions/setup-python@v3
+    - name: generate keys
+      run: |
+        echo '${{ secrets.ACCUWEATHERKEY }}' > accuweatherkey
+        echo '''${{ secrets.FIREBASETOKEN }}''' > crawler-practice-firebase-adminsdk-credential.json
+    - name: python depancies
+      run: |
+        python -m pip install --upgrade pip
+        pip install -r requirements.txt
+    - name: python crawl openweather
+      run: |
+        python oneloafofdragon2.py

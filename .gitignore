@@ -1,0 +1,23 @@
+# Windows:
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+ 
+# Python:
+*.py[cod]
+*.so
+*.egg
+*.egg-info
+dist
+build
+.venv/*
+
+#My ignore
+githubkey
+tests/*
+accuweatherkey
+openweatherkey
+temp.py
+temp2.py
+testone.py
+crawler-practice-firebase-adminsdk-credential.json

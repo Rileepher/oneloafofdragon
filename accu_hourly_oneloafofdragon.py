@@ -6,7 +6,7 @@ datacredPath = "crawler-practice-firebase-adminsdk-credential.json"
 timeZone = 'Asia/Taipei'
 OpAu = False
 
-openWeather = WeatherHandle(apikeyPath=apikeyPath, datacredPath=datacredPath, timeZone=timeZone, OpAu=OpAu)
-openWeather.getWeatherData(fetchList=fetchList)
-openWeather.setFirebase()
+accuWeather = WeatherHandle(apikeyPath=apikeyPath, datacredPath=datacredPath, timeZone=timeZone, OpAu=OpAu)
+accuWeather.getWeatherData(fetchList=fetchList)
+accuWeather.setFirebase()
 # print(openWeather.getDatabase())

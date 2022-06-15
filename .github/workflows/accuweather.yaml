@@ -4,8 +4,8 @@ on:
     branches:
       - main
   schedule:
-    - cron: '0 0 * * *'
-    - cron: '0 12 * * *'
+    - cron: '0 4 * * *'
+    - cron: '0 16 * * *'
 
 jobs:
   my-job:
@@ -16,12 +16,12 @@ jobs:
     - uses: actions/setup-python@v3
     - name: generate keys
       run: |
-        echo '${{ secrets.ACCUWEATHERKEY }}' > accuweatherkey
+        echo -n '${{ secrets.ACCUWEATHERKEY }}' > accuweatherkey
         echo '''${{ secrets.FIREBASETOKEN }}''' > crawler-practice-firebase-adminsdk-credential.json
     - name: python depancies
       run: |
         python -m pip install --upgrade pip
         pip install -r requirements.txt
-    - name: python crawl openweather
+    - name: python crawl accuweather
       run: |
-        python oneloafofdragon2.py
+        python accu_hourly_oneloafofdragon.py

@@ -4,7 +4,7 @@ on:
     branches:
       - main
   schedule:
-    - cron: '0 0 * * *'
+    - cron: '0 16 * * *'
 jobs:
   my-job:
     name: Openweather Job
@@ -14,7 +14,7 @@ jobs:
     - uses: actions/setup-python@v3
     - name: generate keys
       run: |
-        echo '${{ secrets.OPENWEATHERKEY }}' > openweatherkey
+        echo -n '${{ secrets.OPENWEATHERKEY }}' > openweatherkey
         echo '''${{ secrets.FIREBASETOKEN }}''' > crawler-practice-firebase-adminsdk-credential.json
     - name: python depancies
       run: |
@@ -22,4 +22,4 @@ jobs:
         pip install -r requirements.txt
     - name: python crawl openweather
       run: |
-        python oneloafofdragon.py
+        python open_daily_oneloafofdragon.py

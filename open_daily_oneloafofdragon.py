@@ -9,4 +9,4 @@ OpAu = True
 openWeather = WeatherHandle(apikeyPath=apikeyPath, datacredPath=datacredPath, timeZone=timeZone, OpAu=OpAu)
 openWeather.getWeatherData(fetchList=fetchList)
 openWeather.setFirebase()
-print(openWeather.getDatabase())
+# print(openWeather.getDatabase())
